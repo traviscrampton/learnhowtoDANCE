@@ -9,6 +9,8 @@
   <%= f.text_area :text, :class => "form-control" %>
   <%= f.label :cheat_sheet %>
   <%= f.text_area :cheat_sheet, :class => "form-control" %>
+  <%= f.label :order_num %>
+  <%= f.number_field :order_num, :class => "form-control", :min => '1', :value => @section.lessons.length %>
   <br>
   <%= f.submit :class => 'btn btn-primary'%>
   <% end %>

@@ -4,5 +4,5 @@ class Lesson < ActiveRecord::Base
   validates :video_url, :presence => true
   validates :text, :presence => true
   validates :cheat_sheet, :presence => true
-
+  validates :order_num, :presence => true
 end
