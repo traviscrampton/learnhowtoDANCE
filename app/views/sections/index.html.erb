@@ -1,0 +1,18 @@
+<h2>Learn How to Dance!</h2>
+
+
+<!-- TODO: search bar -->
+
+<% if @sections.any? %>
+  <ul>
+    <% @sections.each() do |section| %>
+      <li><%= section.name %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>
+    There will be no dancing in Bomont
+  </p>
+<% end %>
+
+<%= link_to 'Add Section', new_section_path %>
