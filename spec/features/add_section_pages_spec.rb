@@ -8,4 +8,10 @@ describe "the add a section process" do
     click_on 'Create Section'
     expect(page).to have_content 'Tango'
   end
+
+  it "gives an error when no name is entered" do
+    visit new_section_path
+    click_on 'Create Section'
+    expect(page).to have_content 'errors'
+  end
 end
