@@ -23,3 +23,14 @@
     </div>
   </div>
 </div>
+<footer>
+<% if @lesson.previous %>
+  <%= link_to "Previous", section_lesson_path(@lesson.previous.section, @lesson.previous) %>
+<% end %>
+
+<% if @lesson.next %>
+  <%= link_to "Next", section_lesson_path(@lesson.next.section, @lesson.next) %>
+<% end %>
+<br>
+<%= link_to 'Back to ' + @section.name, section_path(@section) %>
+</footer>

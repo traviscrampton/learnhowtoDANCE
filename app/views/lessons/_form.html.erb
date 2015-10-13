@@ -10,7 +10,7 @@
   <%= f.label :cheat_sheet %>
   <%= f.text_area :cheat_sheet, :class => "form-control" %>
   <%= f.label :order_num %>
-  <%= f.number_field :order_num, :class => "form-control", :min => '1', :value => @section.lessons.length %>
+  <%= f.number_field :order_num, :class => "form-control", :min => '1', :value => Lesson.all.length+1 %>
   <br>
   <%= f.submit :class => 'btn btn-primary'%>
   <% end %>
