@@ -6,7 +6,7 @@ describe 'the delete a section process' do
   end
 
   it 'deletes a section' do
-    visit section_path(@section)
+    visit sections_path
     click_on 'Delete'
     expect(page).to_not have_content 'More Tango'
   end
