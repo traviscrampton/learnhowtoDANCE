@@ -1,2 +1,21 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+body {
+  background-color: #F0F0F0;
+}
+
+.well {
+  background-color: white;
+  margin: 20px;
+  border-radius: 0px;
+  border: 1px solid black;
+}
+
+.jumbalaya {
+  list-style-type: none;
+}
+
+.jango {
+  display: inline-block;
+}

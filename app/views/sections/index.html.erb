@@ -1,28 +1,44 @@
 <h2>Table Of Contents</h2>
 
-<form>
-<label for="search">Search</label>
-<input class="form-control" action="index.html" method="post">
-</form>
-<!-- TODO: search bar -->
+<div class="col-sm-3 form-group">
+
+  <form class="form-horizontal">
+    <label for="search">Search</label>
+    <input class="form-control form-inline input-small" action="index.html" method="post">
+    <button class="btn btn-danger jango">SEARCH</button>
+  </form>
+</div>
+<div class="col-sm-12">
 
 
-<% if @sections.any? %>
-  <ul>
-    <% @sections.each() do |section| %>
-      <li>
-        <%= link_to section.name, section_path(section) %> |
-        <%= link_to "Edit", edit_section_path(section) %> |
-        <%= link_to "Delete", section_path(section),
-                              :data => {:confirm => "You sure m8?",
-                                        :method => "delete"}%>
-      </li>
-    <% end %>
-  </ul>
+  <% if @sections.any? %>
+    <ul class="row jumbalaya">
+      <% @sections.each() do |section| %>
+        <div class = "well col-sm-5">
+          <li>
+            <%= link_to section.name, section_path(section) %> |
+            <%= link_to "Edit", edit_section_path(section) %> |
+            <%= link_to "Delete", section_path(section),
+                                  :data => {:confirm => "You sure m8?",
+                                            :method => "delete"}%>
+            <ul>
+              <% section.lessons.each do |lesson| %>
+
+              <li><%= link_to lesson.title, section_lesson_path(section, lesson)%></li>
+              <% end %>
+            </ul>
+          </li>
+        </div>
+      <% end %>
+    </ul>
+
 <% else %>
   <p>
     There will be no dancing in Bomont
   </p>
 <% end %>
+<div class="col-sm-12">
 
 <%= link_to 'Add Section', new_section_path %>
+</div>
+</div>
