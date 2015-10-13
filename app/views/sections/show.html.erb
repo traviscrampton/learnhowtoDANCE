@@ -1,5 +1,21 @@
 <h1>Section Page</h1>
 
-<h3><%=@section.name %>|<%= link_to "Edit", edit_section_path %><%= link_to "Delete", section_path(@section),
-                                                                                      :data => {:confirm => "You sure m8?",
-                                                                                                :method => "delete"}%></h3>
+<h3><%=@section.name %> |
+  <%= link_to "Edit", edit_section_path %> |
+  <%= link_to "Delete", section_path(@section),
+          :data => {:confirm => "You sure m8?",
+          :method => "delete"}%></h3>
+
+<% if @section.lessons.any? %>
+  <ul>
+    <% @section.lessons.each do |lesson| %>
+      <li><%= link_to lesson.title, section_lesson_path(@section, lesson) %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>
+    There will be no dancing lessons in Bomont.
+  </p>
+<% end %>
+
+<h4><%= link_to "Add Lesson", new_section_lesson_path(@section) %></h4>
