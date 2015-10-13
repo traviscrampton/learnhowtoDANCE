@@ -5,7 +5,12 @@
 <% if @section.lessons.any? %>
   <ul>
     <% @section.lessons.each do |lesson| %>
-      <li><%= link_to lesson.title, section_lesson_path(@section, lesson) %> | <%= link_to 'Edit', edit_section_lesson_path(@section, lesson) %></li>
+      <li><%= link_to lesson.title, section_lesson_path(@section, lesson) %>
+        | <%= link_to 'Edit', edit_section_lesson_path(@section, lesson) %>
+        | <%= link_to 'Delete', section_lesson_path(@section, lesson),
+                                          :data => {:confirm => "You sure m8?",
+                                                    :method => "delete"}%>
+        </li>
     <% end %>
   </ul>
 <% else %>
